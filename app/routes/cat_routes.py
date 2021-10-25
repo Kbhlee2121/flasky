@@ -11,8 +11,9 @@ class Cat:
         
 
 cats = [
-    Cat(1, "Muna", "black", "sassy"),
-    Cat(2, "Matthew", "gray", "lazy")
+    Cat(1, "Muna", "black", "mischevious"),
+    Cat(2, "Matthew", "spotted", "cuddly"),
+    Cat(3, "George", "Gray","Sassy")
 ]
 
 # get all cats
@@ -26,9 +27,10 @@ def handle_cats():
 def handle_cats(cat_id):
     # Using try and except for the edge case of if a non integar is entered
     try:
-        cat_id == int(cat_id)
+        cat_id = int(cat_id)
     except:
         return "Bad data", 400
+
     for cat in cats:
         if cat_id == cat.id:
             return vars(cat)
