@@ -18,13 +18,13 @@ cats = [
 
 # get all cats
 @cat_bp.route("", methods = ["GET"])
-def handle_cats():
+def get_all_cats():
     cats_response = [vars(cat) for cat in cats]
     return jsonify(cats_response)
 
 # get one cat
 @cat_bp.route("/<cat_id>", methods = ["GET"])
-def handle_cats(cat_id):
+def get_one_cats(cat_id):
     # Using try and except for the edge case of if a non integar is entered
     try:
         cat_id = int(cat_id)
