@@ -1,5 +1,6 @@
 import pytest
 from app import create_app, db
+from app.models.dog import Dog
 
 #app
 @pytest.fixture
@@ -25,8 +26,17 @@ def client(app):
     # using flask method test_client to start test and refers to app fixture
     return app.test_client()
 
-
 #data
+@pytest.fixture
+def one_dog(app):
+    dog = Dog(
+        name="joy",
+        breed="husky",
+        age="10"
+    )
+
+    db.session.add(dog)
+    db.session.commit()
 
 """
 import pytest
